@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import CommandPalette from "./components/CommandPalette";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${jetbrainsMono.variable} antialiased`}>
         {children}
+        <CommandPalette />
         <footer className="border-t border-gray-800 mt-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-sm text-gray-400 flex items-center justify-between">
             <span>© {new Date().getFullYear()} Taahirah Denmark</span>

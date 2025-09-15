@@ -14,6 +14,7 @@ export default function VideoCard({ project }: VideoCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [likes, setLikes] = useState(project.likes);
   const [dislikes, setDislikes] = useState(project.dislikes);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   // Persist likes/dislikes in localStorage
   useEffect(() => {
@@ -40,14 +41,16 @@ export default function VideoCard({ project }: VideoCardProps) {
   return (
     <>
       <div className="group relative bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_20px_var(--neon-purple)] transition-all duration-300 w-full max-w-sm">
-        <div className="relative">
+        <div className="relative aspect-video">
+          {!imgLoaded && <div className="absolute inset-0 animate-pulse bg-gray-800" />}
           <Image
             src={project.thumbnail}
             alt={project.title}
-            width={320}
-            height={180}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className={`object-cover transition-transform duration-300 ${imgLoaded ? 'group-hover:scale-105' : 'opacity-0'}`}
             priority={false}
+            onLoadingComplete={() => setImgLoaded(true)}
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
           <div className="absolute bottom-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-sm font-mono">

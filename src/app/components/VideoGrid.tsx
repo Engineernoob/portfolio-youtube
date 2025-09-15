@@ -9,6 +9,7 @@ export default function VideoGrid() {
   const q = (searchParams.get('q') || '').toLowerCase();
   const cat = (searchParams.get('cat') || '').toLowerCase();
   const tag = (searchParams.get('tag') || '').toLowerCase();
+  const sort = (searchParams.get('sort') || '').toLowerCase();
 
   const filtered: Project[] = projects.filter((p) => {
     // Text search across several fields
@@ -23,9 +24,15 @@ export default function VideoGrid() {
     return true;
   });
 
+  const sorted = [...filtered].sort((a, b) => {
+    if (sort === 'views') return b.views - a.views;
+    if (sort === 'likes') return b.likes - a.likes;
+    return 0;
+  });
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl mx-auto p-4">
-      {filtered.map((project: Project) => (
+      {sorted.map((project: Project) => (
         <VideoCard key={project.id} project={project} />
       ))}
     </div>

@@ -49,7 +49,7 @@ export default function Header() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search projects..."
+                placeholder="Search projects... (⌘/Ctrl+K)"
                 className="w-full pl-10 pr-4 py-2 bg-gray-900 border border-gray-700 rounded-l-full text-foreground placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue"
               />
               <button
