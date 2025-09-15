@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0F0F0F;
-  --foreground: #ededed;
-  --neon-purple: #8B5CF6;
-  --neon-orange: #F97316;
-  --neon-blue: #06B6D4;
+  /* Clean, slick neutrals */
+  --background: #0B0C10;
+  --foreground: #E6E8EB;
+
+  /* Unified accent (refined blue) */
+  --neon-purple: #60A5FA; /* replaced with accent */
+  --neon-orange: #60A5FA; /* replaced with accent */
+  --neon-blue: #60A5FA;
 }
 
 @theme inline {
@@ -16,11 +19,12 @@
   --color-neon-purple: var(--neon-purple);
   --color-neon-orange: var(--neon-orange);
   --color-neon-blue: var(--neon-blue);
-  --background-gradient: linear-gradient(to bottom, #0F0F0F, #1A1A1A);
+  --background-gradient: linear-gradient(180deg, #0B0C10 0%, #111418 100%);
 }
 
 body {
   background: var(--background-gradient);
   color: var(--foreground);
-  font-family: var(--font-mono);
+  /* Use a clean sans for overall UI */
+  font-family: var(--font-sans);
 }
