@@ -40,9 +40,9 @@ export default function VideoCard({ project }: VideoCardProps) {
 
   return (
     <>
-      <div className="group relative bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_20px_var(--neon-purple)] transition-all duration-300 w-full max-w-sm">
+      <div className="group relative bg-surface rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_20px_var(--neon-purple)] transition-all duration-300 w-full max-w-sm">
         <div className="relative aspect-video">
-          {!imgLoaded && <div className="absolute inset-0 animate-pulse bg-gray-800" />}
+          {!imgLoaded && <div className="absolute inset-0 animate-pulse bg-surface-2" />}
           <Image
             src={project.thumbnail}
             alt={project.title}
@@ -67,7 +67,7 @@ export default function VideoCard({ project }: VideoCardProps) {
         </div>
         <div className="p-4">
           <h3 className="text-lg font-semibold text-foreground line-clamp-2 mb-1 leading-tight">{project.title}</h3>
-          <p className="text-sm text-gray-400 line-clamp-2 mb-2 leading-relaxed">{project.teaser}</p>
+          <p className="text-sm text-muted line-clamp-2 mb-2 leading-relaxed">{project.teaser}</p>
           <div className="mb-2 flex flex-wrap gap-2">
             {project.tags.slice(0, 4).map((t) => (
               <Link

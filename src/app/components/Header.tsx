@@ -34,7 +34,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-gray-800 z-50">
+    <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -43,14 +43,14 @@ export default function Header() {
           </Link>
 
           {/* Search Bar */}
-          <form onSubmit={handleSearch} className="flex-grow max-w-md mx-4 hidden md:flex">
+          <form onSubmit={handleSearch} aria-label="Search projects" className="flex-grow max-w-md mx-4 hidden md:flex">
             <div className="relative w-full">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search projects... (⌘/Ctrl+K)"
-                className="w-full pl-10 pr-4 py-2 bg-gray-900 border border-gray-700 rounded-l-full text-foreground placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue"
+                className="w-full pl-10 pr-4 py-2 bg-surface border border-border rounded-l-full text-foreground placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue"
               />
               <button
                 type="submit"
@@ -62,7 +62,7 @@ export default function Header() {
           </form>
 
           {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-6" role="navigation" aria-label="Primary">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -90,13 +90,13 @@ export default function Header() {
 
       {/* Mobile Search */}
       <div className="md:hidden px-4 pb-4">
-        <form onSubmit={handleSearch} className="flex">
+        <form onSubmit={handleSearch} aria-label="Search projects" className="flex">
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search projects..."
-            className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-l-full text-foreground placeholder-gray-400 focus:outline-none focus:border-neon-blue"
+            className="flex-grow px-4 py-2 bg-surface border border-border rounded-l-full text-foreground placeholder-gray-400 focus:outline-none focus:border-neon-blue"
           />
           <button
             type="submit"

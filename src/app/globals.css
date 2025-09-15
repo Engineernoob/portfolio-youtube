@@ -9,11 +9,22 @@
   --neon-purple: #60A5FA; /* replaced with accent */
   --neon-orange: #60A5FA; /* replaced with accent */
   --neon-blue: #60A5FA;
+
+  /* Additional tokens */
+  --surface: #111418;
+  --surface-2: #0E1115;
+  --border: #1F242B;
+  --muted: #9BA1A6;
+  --ring: #60A5FA;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
   --font-sans: ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --color-neon-purple: var(--neon-purple);
@@ -27,4 +38,18 @@ body {
   color: var(--foreground);
   /* Use a clean sans for overall UI */
   font-family: var(--font-sans);
+}
+
+/* Sleek focus styles */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

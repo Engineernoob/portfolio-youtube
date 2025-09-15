@@ -57,10 +57,10 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="hidden lg:block w-80 bg-gray-900/50 border-l border-gray-800 p-4 overflow-y-auto h-[calc(100vh-4rem)] sticky top-16">
+    <aside className="hidden lg:block w-80 bg-surface/50 border-l border-border p-4 overflow-y-auto h-[calc(100vh-4rem)] sticky top-16">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-bold text-neon-purple font-mono">Filters</h2>
-        <button onClick={() => router.push(pathname)} className="text-xs text-gray-400 hover:text-neon-blue font-mono">Clear</button>
+        <button onClick={() => router.push(pathname)} className="text-xs text-muted hover:text-neon-blue font-mono">Clear</button>
       </div>
 
       <div className="mb-6">
@@ -128,7 +128,7 @@ export default function Sidebar() {
         <h3 className="text-sm font-semibold text-foreground mb-2 font-mono">Recommended</h3>
         <div className="space-y-4">
           {projects.slice(0, 3).map((project) => (
-            <div key={project.id} className="group flex items-start space-x-3 hover:bg-gray-800/50 p-2 rounded transition-colors duration-200">
+            <div key={project.id} className="group flex items-start space-x-3 hover:bg-surface-2/50 p-2 rounded transition-colors duration-200">
               <div className="relative w-24 aspect-video flex-shrink-0 rounded overflow-hidden">
                 <Image 
                   src={project.thumbnail} 
@@ -142,8 +142,8 @@ export default function Sidebar() {
                 <h4 className="text-sm font-medium text-foreground truncate group-hover:text-neon-blue transition-colors duration-200">
                   {project.title}
                 </h4>
-                <p className="text-xs text-gray-400 truncate">{project.channel}</p>
-                <p className="text-xs text-gray-500">{project.views.toLocaleString()} views</p>
+                <p className="text-xs text-muted truncate">{project.channel}</p>
+                <p className="text-xs text-muted">{project.views.toLocaleString()} views</p>
               </div>
             </div>
           ))}
